@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Sono:wght@200&display=swap"
+        rel="stylesheet">
+    <!-- Devicon for Skill Logos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Abhimanyu's Room</title>
+</head>
+
+<body>
+    <!-- Three.js Canvas -->
+    <div class="portfolio">
+        <canvas id="portfolio-canvas"></canvas>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <span class="nav-brand">Abhimanyu</span>
+        <button id="portfolio-btn" class="nav-btn">📁About Me</button>
+    </nav>
+
+    <!-- Bottom Controls: Theme Toggle + Music Toggle -->
+    <div class="bottom-controls">
+        <button id="music-toggle" class="control-btn" aria-label="Toggle Music">
+            🎵
+        </button>
+        <button id="theme-toggle" class="control-btn" aria-label="Toggle Dark Mode">
+            🌙
+        </button>
+    </div>
+
+    <!-- Background Music (Soft Lo-Fi) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <h2>Loading...</h2>
+        <p>Booting up the 3D room — please wait ✨</p>
+    </div>
+
+    <!-- Welcome Popup -->
+    <div id="welcome" class="welcome">
+        <div class="welcome-content">
+            <button id="welcome-exit-button" class="popup-close">&times;</button>
+            <div class="popup-body">
+                <h2>Hey there 👋</h2>
+                <p>Welcome to Abhimanyu's interactive 3D portfolio. Feel free to explore!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Popup -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <button id="popup-exit-button" class="popup-close">&times;</button>
+            <div class="popup-body">
+
+                <!-- About Me (PC 1 / Laptop / Monitor) -->
+                <section class="portfolio-section fade-in-up story-section" id="about-me">
+                    <div class="story-header">
+                        <span class="story-icon">�</span>
+                        <h2>The Person Behind the Screen</h2>
+                    </div>
+                    <div class="story-content">
+                        <p class="story-intro">Hello, I'm Abhimanyu.</p>
+                        <div class="story-card">
+                            <div class="story-avatar">👨‍💻</div>
+                            <div class="story-details">
+                                <h3>Abhimanyu Mudaliyar</h3>
+                                <p class="story-role">Data Analyst & Creative Developer</p>
+                                <div class="story-meta">
+                                    <span>📍 Mumbai, India</span>
+                                    <span>🎂 21 years old</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="story-bio">
+                            I believe in the magic of turning raw data into stories that drive decisions.
+                            When I'm not analyzing spreadsheets, you'll find me building immersive 3D web experiences
+                            — like this very room you're exploring right now!
+                        </p>
+                        <a href="mailto:maggiehair2004@gmail.com" class="cta-btn">📬 Say Hello</a>
+                    </div>
+                </section>
+
+                <!-- Skills -->
+                <section class="portfolio-section fade-in-up" id="skills">
+                    <h2>🛠️ Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="devicon-python-plain colored skill-icon"></i>
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-postgresql-plain colored skill-icon"></i>
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"
+                                alt="Power BI" class="skill-icon-img">
+                            <span class="skill-name">Power BI</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg"
+                                alt="Excel" class="skill-icon-img">
+                            <span class="skill-name">Excel</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-github-original colored skill-icon"></i>
+                            <span class="skill-name">GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-figma-plain colored skill-icon"></i>
+                            <span class="skill-name">Figma</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-threejs-original skill-icon"></i>
+                            <span class="skill-name">Three.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-html5-plain colored skill-icon"></i>
+                            <span class="skill-name">HTML/CSS/JS</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Work Experience (PC 2 / Second PC) -->
+                <section class="portfolio-section fade-in-up story-section" id="work-experience">
+                    <div class="story-header">
+                        <span class="story-icon">🖥️</span>
+                        <h2>My Journey So Far</h2>
+                    </div>
+                    <div class="story-content">
+                        <p class="story-intro">This is where my story unfolds...</p>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2024 - Present</span>
+                                    <h3>Aspiring Data Analyst & Frontend Developer</h3>
+                                    <p>Building real-world projects, mastering SQL queries, creating interactive
+                                        dashboards, and crafting 3D web experiences.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">Learning Phase</span>
+                                    <h3>Student & Self-Learner</h3>
+                                    <p>Pursuing a Bachelor's degree while continuously upskilling through online courses
+                                        and hands-on practice.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="portfolio-section fade-in-up story-section" id="education">
+                    <div class="story-header">
+                        <span class="story-icon">🎓</span>
+                        <h2>Academic Background</h2>
+                    </div>
+                    <div class="story-content">
+                        <div class="education-card">
+                            <div class="edu-icon">🏛️</div>
+                            <div class="edu-details">
+                                <h3>Bachelor's Degree</h3>
+                                <p>Focused on Data Analysis & Design</p>
+                                <span class="edu-status">📖 Currently Pursuing</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects (Posters / Frames) -->
+                <section class="portfolio-section fade-in-up story-section" id="projects">
+                    <div class="story-header">
+                        <span class="story-icon">🖼️</span>
+                        <h2>Wall of Achievements</h2>
+                    </div>
+                    <div class="story-content">
+                        <p class="story-intro">Each poster represents a project I'm proud of...</p>
+                        <div class="project-grid">
+                            <div class="project-card interactive-card">
+                                <div class="project-badge">✨ Featured</div>
+                                <h3>3D Room Portfolio</h3>
+                                <p>The very experience you're exploring right now! Built with Three.js, Blender & GSAP.
+                                </p>
+                                <div class="project-tech">
+                                    <span>Three.js</span><span>GSAP</span><span>Blender</span>
+                                </div>
+                            </div>
+                            <div class="project-card interactive-card">
+                                <h3>SQL Data Analysis</h3>
+                                <p>Complex queries, data cleaning, and actionable insights from real datasets.</p>
+                                <div class="project-tech">
+                                    <span>PostgreSQL</span><span>Analytics</span>
+                                </div>
+                            </div>
+                            <div class="project-card interactive-card">
+                                <h3>Power BI Dashboards</h3>
+                                <p>Interactive, visual dashboards that tell stories through data.</p>
+                                <div class="project-tech">
+                                    <span>Power BI</span><span>DAX</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Game Project (TV) -->
+                <section class="portfolio-section fade-in-up story-section" id="game-project">
+                    <div class="story-header">
+                        <span class="story-icon">📺</span>
+                        <h2>Now Playing...</h2>
+                    </div>
+                    <div class="story-content">
+                        <p class="story-intro">Turn on the TV to see what I'm currently working on...</p>
+                        <div class="game-card">
+                            <div class="game-screen">
+                                <span class="game-title">🎮 My Awesome Game</span>
+                                <p>A passion project combining 3D graphics, interactive gameplay, and immersive
+                                    storytelling.</p>
+                                <div class="game-status">
+                                    <span class="status-badge">🚧 In Development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact -->
+                <section class="portfolio-section fade-in-up story-section" id="contact">
+                    <div class="story-header">
+                        <span class="story-icon">📬</span>
+                        <h2>Let's Connect!</h2>
+                    </div>
+                    <div class="story-content">
+                        <p class="story-intro">I'd love to hear from you...</p>
+                        <div class="contact-grid">
+                            <a href="mailto:maggiehair2004@gmail.com" class="contact-card">
+                                <span class="contact-icon">📧</span>
+                                <span>Email Me</span>
+                            </a>
+                            <a href="https://github.com/yourusername" target="_blank" class="contact-card">
+                                <span class="contact-icon">🐱</span>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-card">
+                                <span class="contact-icon">💼</span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Script (Module) -->
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
